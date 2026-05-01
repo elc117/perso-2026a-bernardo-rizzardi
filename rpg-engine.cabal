@@ -1,0 +1,35 @@
+cabal-version:       2.2
+name:                rpg-engine
+version:             0.1.0.0
+license:             BSD-3-Clause
+license-file:        LICENSE
+author:              Author name here
+maintainer:          example@example.com
+copyright:           2026 Author name here
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+                     CHANGELOG.md
+
+executable rpg-engine
+  hs-source-dirs:      src
+  main-is:             Main.hs
+  other-modules:       Types, Combat, Database
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+                     , scotty
+                     , aeson
+                     , sqlite-simple
+                     , text
+                     , warp
+  ghc-options:         -Wall
+
+test-suite rpg-tests
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test, src
+  main-is:             Spec.hs
+  other-modules:       Types, Combat
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+                     , HUnit
+                     , text
