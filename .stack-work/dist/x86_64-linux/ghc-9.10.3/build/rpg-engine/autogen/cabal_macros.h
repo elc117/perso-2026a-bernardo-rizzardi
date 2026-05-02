@@ -163,7 +163,7 @@
 #endif /* MIN_TOOL_VERSION_strip */
 
 #ifndef CURRENT_COMPONENT_ID
-#define CURRENT_COMPONENT_ID "rpg-engine-0.1.0.0-LKDBQhVyrbrIoHyz0G96CL-rpg-engine"
+#define CURRENT_COMPONENT_ID "rpg-engine-0.1.0.0-8CX6elzyOi48sY4WM4AZyY-rpg-engine"
 #endif /* CURRENT_COMPONENT_ID */
 #ifndef CURRENT_PACKAGE_VERSION
 #define CURRENT_PACKAGE_VERSION "0.1.0.0"
