@@ -17,7 +17,7 @@ data Personagem = Personagem {
 
 data ResultadoCombate = ResultadoCombate {
     vencedor :: String,
-    turnosLevados :: Int,
+    rodadasLevadas :: Int,
     vidaVencedor :: Int,
     batalha :: [String]
 } deriving (Show, Generic, ToJSON, FromJSON)

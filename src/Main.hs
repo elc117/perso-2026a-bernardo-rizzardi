@@ -32,3 +32,6 @@ main = do
           let resultado = combate p1 p2 resultadoInicial
           json resultado
         _ -> text "Um ou mais personagens nao encontrados"
+    get "/personagens" $ do
+        ps <- liftIO (buscarPersonagem conn)
+        json ps

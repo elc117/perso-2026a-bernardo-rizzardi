@@ -11,7 +11,7 @@ player :: Bool -> Personagem -> Personagem -> Personagem
 player vez in1 in2 = if vez then in1 else in2
 
 -- Executa os turnos.
-turnos :: Personagem -> Personagem -> (Personagem, Personagem, String)
+turnos :: Personagem -> Personagem -> (Personagem, Personagem, [String])
 turnos input1 input2 =
     let 
         vez = velocidade input1 > velocidade input2 -- se true, input1 starts, se false, input2 starts
@@ -24,9 +24,9 @@ turnos input1 input2 =
         dano2 = calculoDano (forca p2att) (defesa p1)
         p1att = p1 {hp = hp p1 - dano2}
         str2 = if tem2turnos 
-            then str1 ++ " No turno 2, " ++ (nome p2) ++ " atacou " ++ (nome p1) ++ " causando " ++ show dano2 ++ " de dano!!"
-            else str1 ++ " " ++ (nome p2) ++ "morreu!!"
-    in  if tem2turnos then (p1att, p2att, str2) else (p1, p2att, str2) 
+            then "No turno 2, " ++ (nome p2) ++ " atacou " ++ (nome p1) ++ " causando " ++ show dano2 ++ " de dano!!"
+            else (nome p2) ++ " morreu!!"
+    in  if tem2turnos then (p1att, p2att, [str1, str2]) else (p1, p2att, [str1, str2]) 
 
 -- Logica do combate em si.
 combate :: Personagem -> Personagem -> ResultadoCombate -> ResultadoCombate
@@ -41,15 +41,15 @@ combate p1 p2 turnoAtual = if alguemMorreu then finalizado else combate p1att p2
             }
             (p1att, p2att, str) = turnos p1 p2
             logAcumulado = turnoAtual {
-                turnosLevados = turnosLevados turnoAtual + 1,
-                batalha = batalha turnoAtual ++ [str]
+                rodadasLevadas = rodadasLevadas turnoAtual + 1,
+                batalha = batalha turnoAtual ++ str
             }
 
 resultadoInicial :: ResultadoCombate
 resultadoInicial = ResultadoCombate
     { 
         vencedor = "", 
-        turnosLevados = 0, 
+        rodadasLevadas = 0, 
         vidaVencedor = 0, 
         batalha = []
     }
