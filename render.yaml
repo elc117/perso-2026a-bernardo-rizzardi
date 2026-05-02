@@ -1,0 +1,16 @@
+services:
+  - name: rpg-engine
+    type: web
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /healthz
+    autoDeployTrigger: commit
+    buildFilter:
+      paths:
+        - Dockerfile
+        - render.yaml
+        - src/**
+      ignoredPaths:
+        - README.md

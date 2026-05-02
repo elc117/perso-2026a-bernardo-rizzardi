@@ -35,3 +35,5 @@ main = do
     get "/personagens" $ do
         ps <- liftIO (buscarPersonagem conn)
         json ps
+    get "/healthz" $ do
+      text "ok"
