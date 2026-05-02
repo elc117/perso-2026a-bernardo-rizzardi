@@ -22,7 +22,7 @@ executable rpg-engine
                      , sqlite-simple
                      , text
                      , warp
-  ghc-options:         -Wall
+  ghc-options:         -Wall -threaded
 
 test-suite rpg-tests
   type:                exitcode-stdio-1.0
