@@ -6,9 +6,11 @@ calculoDano :: Int -> Int -> Int
 calculoDano att1 d2 = if dano < 1 then 1 else dano
     where dano = att1 - d2
 
+-- Seleciona de quem eh a vez.
 player :: Bool -> Personagem -> Personagem -> Personagem
 player vez in1 in2 = if vez then in1 else in2
 
+-- Executa os turnos.
 turnos :: Personagem -> Personagem -> (Personagem, Personagem, String)
 turnos input1 input2 =
     let 
@@ -24,13 +26,14 @@ turnos input1 input2 =
         str2 = if tem2turnos 
             then str1 ++ " No turno 2, " ++ (nome p2) ++ " atacou " ++ (nome p1) ++ " causando " ++ show dano2 ++ " de dano!!"
             else str1 ++ " " ++ (nome p2) ++ "morreu!!"
-    in  if tem2turnos then (p1att, p2att, str2) else (p1, p2att, str2)
+    in  if tem2turnos then (p1att, p2att, str2) else (p1, p2att, str2) 
 
+-- Logica do combate em si.
 combate :: Personagem -> Personagem -> ResultadoCombate -> ResultadoCombate
 combate p1 p2 turnoAtual = if alguemMorreu then finalizado else combate p1att p2att logAcumulado
         where
             alguemMorreu = (hp p1) <= 0 || (hp p2) <= 0
-            quemVenceu = if (hp p1) > 0 then p2 else p1
+            quemVenceu = if (hp p1) > 0 then p1 else p2
             finalizado = turnoAtual {
                 vencedor = nome quemVenceu,
                 vidaVencedor = hp quemVenceu,
@@ -41,3 +44,12 @@ combate p1 p2 turnoAtual = if alguemMorreu then finalizado else combate p1att p2
                 turnosLevados = turnosLevados turnoAtual + 1,
                 batalha = batalha turnoAtual ++ [str]
             }
+
+resultadoInicial :: ResultadoCombate
+resultadoInicial = ResultadoCombate
+    { 
+        vencedor = "", 
+        turnosLevados = 0, 
+        vidaVencedor = 0, 
+        batalha = []
+    }

@@ -47,7 +47,7 @@ getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: 
 
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 bindir     = "/home/vboxuser/rpg-engine/.stack-work/install/x86_64-linux/93293781b286b11787b42dc436ab53c0714bc44bf9911e5b8be2b0f01ebcc62f/9.10.3/bin"
-libdir     = "/home/vboxuser/rpg-engine/.stack-work/install/x86_64-linux/93293781b286b11787b42dc436ab53c0714bc44bf9911e5b8be2b0f01ebcc62f/9.10.3/lib/x86_64-linux-ghc-9.10.3-1be3/rpg-engine-0.1.0.0-8CX6elzyOi48sY4WM4AZyY-rpg-engine"
+libdir     = "/home/vboxuser/rpg-engine/.stack-work/install/x86_64-linux/93293781b286b11787b42dc436ab53c0714bc44bf9911e5b8be2b0f01ebcc62f/9.10.3/lib/x86_64-linux-ghc-9.10.3-1be3/rpg-engine-0.1.0.0-LKDBQhVyrbrIoHyz0G96CL-rpg-engine"
 dynlibdir  = "/home/vboxuser/rpg-engine/.stack-work/install/x86_64-linux/93293781b286b11787b42dc436ab53c0714bc44bf9911e5b8be2b0f01ebcc62f/9.10.3/lib/x86_64-linux-ghc-9.10.3-1be3"
 datadir    = "/home/vboxuser/rpg-engine/.stack-work/install/x86_64-linux/93293781b286b11787b42dc436ab53c0714bc44bf9911e5b8be2b0f01ebcc62f/9.10.3/share/x86_64-linux-ghc-9.10.3-1be3/rpg-engine-0.1.0.0"
 libexecdir = "/home/vboxuser/rpg-engine/.stack-work/install/x86_64-linux/93293781b286b11787b42dc436ab53c0714bc44bf9911e5b8be2b0f01ebcc62f/9.10.3/libexec/x86_64-linux-ghc-9.10.3-1be3/rpg-engine-0.1.0.0"
