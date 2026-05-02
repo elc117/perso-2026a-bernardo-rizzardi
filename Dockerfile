@@ -9,7 +9,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY . .
 
-RUN stack build --system-ghc && \
-    cp "$(stack path --local-install-root)/bin/rpg-engine" /usr/local/bin/rpg-engine
+RUN cabal update && \
+    cabal build && \
+    cp "$(cabal list-bin rpg-engine)" /usr/local/bin/rpg-engine
+
+EXPOSE 3000
 
 CMD ["rpg-engine"]
