@@ -6,11 +6,6 @@ calculoDano :: Int -> Int -> Int
 calculoDano att1 d2 = if dano < 1 then 1 else dano
     where dano = att1 - d2
 
--- turnos :: Personagem -> Personagem -> Personagem -> Personagem -> String
--- turnos p1 p2 = 
---     let vez = velocidade p1 > velocidade p2
---         dano1 = if vez then calculoDano (forca p1) (defesa p2) else
-
 player :: Bool -> Personagem -> Personagem -> Personagem
 player vez in1 in2 = if vez then in1 else in2
 
@@ -30,4 +25,19 @@ turnos input1 input2 =
             then str1 ++ " No turno 2, " ++ (nome p2) ++ " atacou " ++ (nome p1) ++ " causando " ++ show dano2 ++ " de dano!!"
             else str1 ++ " " ++ (nome p2) ++ "morreu!!"
     in  if tem2turnos then (p1att, p2att, str2) else (p1, p2att, str2)
-        
+
+combate :: Personagem -> Personagem -> ResultadoCombate -> ResultadoCombate
+combate p1 p2 turnoAtual = if alguemMorreu then finalizado else combate p1att p2att logAcumulado
+        where
+            alguemMorreu = (hp p1) <= 0 || (hp p2) <= 0
+            quemVenceu = if (hp p1) > 0 then p2 else p1
+            finalizado = turnoAtual {
+                vencedor = nome quemVenceu,
+                vidaVencedor = hp quemVenceu,
+                batalha = batalha turnoAtual ++ ["Batalha finalizada!"]
+            }
+            (p1att, p2att, str) = turnos p1 p2
+            logAcumulado = turnoAtual {
+                turnosLevados = turnosLevados turnoAtual + 1,
+                batalha = batalha turnoAtual ++ [str]
+            }
