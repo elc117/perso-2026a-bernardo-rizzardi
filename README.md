@@ -48,7 +48,7 @@ As funcoes puras testadas foram:
 - calculoDano: utiliza a forca do atacante e a defesa do atacado para calcular o dano, com minimo de 1.
 - player: recebe a velocidade dos personagens e decide quem atacara primeiro: quem for mais rapido. Caso forem iguais, o segundo comeca.
 - turnos: recebe os dois personagens e simula o ataque, retornando a string de sintetizacao do que ocorreu.
-- combate: recebe os dois personagens e simula toda a batalha, e retorna RelatorioCombate, com os dados do que ocorreu turno a turno, vencedor, vida restante do vencedor e turnos utilizados.
+- combate: recebe os dois personagens e simula toda a batalha, e retorna ResultadoCombate, com os dados do que ocorreu turno a turno, vencedor, vida restante do vencedor e turnos utilizados.
 
 Os organizei tratando um caso normal e um egde case (caso especial) para as aritmeticas, 'turnos' comparando se a string faz sentido com a logica, e 'combate' verificando o vencedor.
 
@@ -91,6 +91,14 @@ Os ajustes necessarios foram no Dockerfile, a flag -threaded e a seed do banco.
 Apresente o resultado final do trabalho, na forma de GIF animado ou vídeo curto (máximo 60s)
 
 Você também pode acrescentar uma breve explicação sobre o que está sendo demonstrado.
+
+![Criar Personagem](assets/criarPersonagem.gif)
+
+Neste .gif acima, estou criando um personagem.
+
+![Batalha](assets/batalha.gif)
+
+Neste, estou simulando uma batalha.
 
 ---
 
@@ -152,23 +160,7 @@ O que mais me ajudou foi a abordagem que tomei de não receber nenhum código pr
 
 ## 9. Referências e créditos
 
-Liste referências e créditos de forma detalhada, com título e URL, incluindo, quando aplicável:
-
-- sites consultados
-- documentações
-- materiais de aula
-- colegas
-- trechos de código adaptados
-- imagens, vídeos 
-
-Exemplo:
-
-- Documentação do Scotty: ...
-- Documentação do Render: ...
-- Material de aula da disciplina: ...
-- Vídeo sobre Scotty: ...
-
-- Repositório de exemplo da professora: demo-scotty-codespace-2026a
+- Repositório de exemplo da professora: https://github.com/elc117/demo-scotty-codespace-2026a
 - Documentação do Scotty: https://hackage.haskell.org/package/scotty
 - Documentação do sqlite-simple: https://hackage.haskell.org/package/sqlite-simple
 - Documentação do HUnit: https://hackage.haskell.org/package/HUnit
