@@ -12,9 +12,13 @@ main :: IO ()
 main = do
   conn <- open "rpg.db"
   criarTabela conn
-  salvarPersonagem conn (Personagem Nothing "Aragorn" 100 20 10 15)
-  salvarPersonagem conn (Personagem Nothing "Goblin" 30 8 5 10)
-  salvarPersonagem conn (Personagem Nothing "Dragao" 200 35 20 8)
+  populado <- bancoPopolado conn
+  if not populado
+    then do
+      salvarPersonagem conn (Personagem Nothing "Aragorn" 100 20 10 15)
+      salvarPersonagem conn (Personagem Nothing "Goblin" 30 8 5 10)
+      salvarPersonagem conn (Personagem Nothing "Dragao" 200 35 20 8)
+    else return ()
   scotty 3000 $ do
     get "/personagem/:id" $ do
       idBuscado <- pathParam "id"
@@ -37,7 +41,9 @@ main = do
           json resultado
         _ -> text "Um ou mais personagens nao encontrados"
     get "/personagens" $ do
-        ps <- liftIO (buscarPersonagem conn)
-        json ps
+      ps <- liftIO (buscarPersonagem conn)
+      json ps
     get "/healthz" $ do
       text "ok"
+    get "/" $ do
+      file "static/index.html"

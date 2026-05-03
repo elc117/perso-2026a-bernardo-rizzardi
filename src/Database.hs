@@ -1,6 +1,12 @@
 {-# OPTIONS_GHC -Wno-orphans #-}
 
-module Database where
+module Database (
+    criarTabela,
+    salvarPersonagem,
+    buscarPersonagem,
+    buscarPersonagemId,
+    bancoPopolado
+) where
 
 import Database.SQLite.Simple
 import Data.String (fromString)
@@ -25,3 +31,8 @@ buscarPersonagemId conn idBuscado = do
     case resultados of
         (p:_) -> return (Just p)
         []    -> return Nothing
+
+bancoPopolado :: Connection -> IO Bool
+bancoPopolado conn = do
+    resultados <- query_ conn (fromString "SELECT * FROM personagens") :: IO [Personagem]
+    return (not (null resultados))
