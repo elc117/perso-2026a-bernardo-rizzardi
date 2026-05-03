@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -54,9 +54,15 @@
 
         .grid-2 {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 30px;
             margin-bottom: 40px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
         }
 
         .section {
@@ -230,7 +236,7 @@
 
         .stats-resultado {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 20px;
             margin-bottom: 25px;
         }
@@ -372,6 +378,23 @@
             flex-direction: column;
         }
 
+        .combate-inputs-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .combate-inputs-vertical > div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .combate-inputs-vertical button {
+            align-self: flex-start;
+            width: 100%;
+        }
+
         @media (max-width: 768px) {
             .grid-2 {
                 grid-template-columns: 1fr;
@@ -454,52 +477,49 @@
                     <div class="empty-state">Carregando personagens...</div>
                 </div>
             </div>
-        </div>
 
-        <!-- Seção de Combate -->
-        <div class="section">
-            <h2>Simulador de Combate</h2>
-            
-            <div class="combate-inputs">
-                <div>
-                    <label for="id1">ID Personagem 1</label>
-                    <input type="number" id="id1" name="id1" min="1" placeholder="Ex: 1">
-                </div>
-                <div>
-                    <label for="id2">ID Personagem 2</label>
-                    <input type="number" id="id2" name="id2" min="1" placeholder="Ex: 2">
-                </div>
-                <button id="botaoCombate" style="align-self: flex-end;">Iniciar Combate</button>
-            </div>
-
-            <div id="mensagemCombate" class="error"></div>
-
-            <div id="loadingCombate" class="loading">
-                <div class="spinner"></div>
-                <p>Simulando combate...</p>
-            </div>
-
-            <div id="combateResultado" class="combate-resultado">
-                <div class="resultado-header">
-                    <div class="vencedor" id="nomeVencedor">-</div>
-                    <p style="margin-top: 10px; color: #d4af37;">
-                        Vida Restante: <span id="vidaVencedor" style="color: #ffd700; font-weight: bold;">-</span>
-                    </p>
-                </div>
-
-                <div class="stats-resultado">
-                    <div class="stat-box">
-                        <label>Rodadas Levadas</label>
-                        <div class="value" id="rodadasLevadas">-</div>
+            <!-- Seção de Combate -->
+            <div class="section">
+                <h2>Simulador de Combate</h2>
+                
+                <div class="combate-inputs-vertical">
+                    <div>
+                        <label for="id1">ID Personagem 1</label>
+                        <input type="number" id="id1" name="id1" min="1" placeholder="Ex: 1">
                     </div>
-                    <div class="stat-box">
-                        <label>Duração</label>
-                        <div class="value" id="duracao">-</div>
+                    <div>
+                        <label for="id2">ID Personagem 2</label>
+                        <input type="number" id="id2" name="id2" min="1" placeholder="Ex: 2">
                     </div>
+                    <button id="botaoCombate">Iniciar Combate</button>
                 </div>
 
-                <h3 style="color: #d4af37; margin-bottom: 15px; font-size: 1.1em;">Log da Batalha</h3>
-                <div class="batalha-log" id="batalhaLog">
+                <div id="mensagemCombate" class="error"></div>
+
+                <div id="loadingCombate" class="loading">
+                    <div class="spinner"></div>
+                    <p>Simulando combate...</p>
+                </div>
+
+                <div id="combateResultado" class="combate-resultado">
+                    <div class="resultado-header">
+                        <p style="margin-bottom: 10px; color: #7f8c8d; font-size: 0.95em; text-transform: uppercase; letter-spacing: 0.5px;">🏆 Vencedor</p>
+                        <div class="vencedor" id="nomeVencedor">-</div>
+                        <p style="margin-top: 15px; color: #2c3e50;">
+                            Vida Restante: <span id="vidaVencedor" style="color: #27ae60; font-weight: bold; font-size: 1.2em;">-</span>
+                        </p>
+                    </div>
+
+                    <div class="stats-resultado">
+                        <div class="stat-box">
+                            <label>Rodadas Levadas</label>
+                            <div class="value" id="rodadasLevadas">-</div>
+                        </div>
+                    </div>
+
+                    <h3 style="color: #2c3e50; margin-bottom: 15px; font-size: 1.1em;">Log da Batalha</h3>
+                    <div class="batalha-log" id="batalhaLog">
+                    </div>
                 </div>
             </div>
         </div>
@@ -694,7 +714,6 @@
             document.getElementById('nomeVencedor').textContent = resultado.vencedor || 'Empate';
             document.getElementById('vidaVencedor').textContent = resultado.vidaVencedor || 0;
             document.getElementById('rodadasLevadas').textContent = turnosLevados;
-            document.getElementById('duracao').textContent = turnosLevados + ' turno' + (turnosLevados !== 1 ? 's' : '');
 
             const batalhaLog = document.getElementById('batalhaLog');
             batalhaLog.innerHTML = '';
