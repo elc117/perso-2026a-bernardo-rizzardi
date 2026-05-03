@@ -4,6 +4,7 @@ module Main (main) where
 
 import Web.Scotty
 import Database.SQLite.Simple
+import Types
 import Database
 import Combat
 
@@ -11,6 +12,9 @@ main :: IO ()
 main = do
   conn <- open "rpg.db"
   criarTabela conn
+  salvarPersonagem conn (Personagem Nothing "Aragorn" 100 20 10 15)
+  salvarPersonagem conn (Personagem Nothing "Goblin" 30 8 5 10)
+  salvarPersonagem conn (Personagem Nothing "Dragao" 200 35 20 8)
   scotty 3000 $ do
     get "/personagem/:id" $ do
       idBuscado <- pathParam "id"

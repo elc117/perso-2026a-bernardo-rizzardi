@@ -3,12 +3,12 @@
 /home/vboxuser/rpg-engine/README.md:
   hash: 475f2a10c4ff5c73e0299a6519a0d58ee45753ddbef0fe0a8cadc2163ef2d2e1
 /home/vboxuser/rpg-engine/rpg-engine.cabal:
-  hash: fb2e93acc581489a7a8644e8801b2c2c552f8a896e73a6f740f92baa395d96b1
+  hash: 16c6a0c836a59bd6be024b0a8b221a49e4d782d1fc64457f00a86c2ec4503b73
 /home/vboxuser/rpg-engine/src/Combat.hs:
   hash: b8ac81dda19c9eb5d920cc2d49b6f1cfdc20b7dd5243aaa2a6e84d2ce8adbb5c
 /home/vboxuser/rpg-engine/src/Database.hs:
   hash: 0e787c6bbae35d75eac8bf17ebe816de866e8439b8ea3bed3c831d09674da6d4
 /home/vboxuser/rpg-engine/src/Main.hs:
-  hash: cf138778937d806a7f3e2407a85e09ecd0609a9f7c4cc7b3d0cae9314ce4891c
+  hash: 33bd29cd02b7154679be6f60d2ff6d56b3fce0451620339f9bee0554a3a72261
 /home/vboxuser/rpg-engine/src/Types.hs:
   hash: 182a25f911823be2617f963132a7e30c9f127f50d327c007baffae031491eff0
