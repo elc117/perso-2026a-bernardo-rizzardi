@@ -1,15 +1,4 @@
-# rpg-engine
-# Backend Web com Haskell+Scotty
-
-
-- Estrutura e conteúdo do README:
-
-
-  3. Processo de desenvolvimento: comentários pessoais sobre o desenvolvimento, com evidências de compreensão, incluindo versões com erros e tentativas de solução
-  4. Orientações para execução: instalação de dependências, etc.
-  5. Resultado final: demonstrar execução em GIF animado ou vídeo curto (máximo 60s)
-  6. Referências e créditos (incluindo alguns prompts, se aplicável)
-
+# RPG Engine — Backend Web com Haskell + Scotty
 ## 1. Identificação
 
 - Nome: Bernardo Rizzardi Barbosa
